@@ -265,13 +265,7 @@ CouchDBService.factory( 'CouchDB', [ '$http',
             // Set private GET-oriented properties from properties supplied by the
             // API method caller.
 
-            // Design document
-            //
-            // TODO  -- is the handling of the Design Document the best it can be?
-            //          why not store it with READ props?  Does a design doc get used in any other context?
-            //
-
-            config.designDocument = parameters.designDocument || defaultConfig.designDocument;
+            config.designDocument = parameters.designDocument || config.designDocument;
             // GET oriented properties
             read.descending = parameters.descending || null;
             read.endKey = parameters.endKey || null;
@@ -326,7 +320,7 @@ CouchDBService.factory( 'CouchDB', [ '$http',
                 // object. Properties not passed by the caller are set to
                 // default values.
 
-                console.log( 'angular-couchdb.js, a simple clientside service,', VERSION );
+                // console.log( 'angular-couchdb.js, a simple clientside service,', VERSION );
 
                 // Create a new db if explicitly directed to do so
                 var createDB = createNewDb || false;
@@ -468,6 +462,8 @@ CouchDBService.factory( 'CouchDB', [ '$http',
                     var msg = "SAVE method: method called with invalid properties object";
                     throw new Error( msg );
                 };
+
+                // console.log('COUCHDB.Service.save', method, url data );
 
                 // Make request and return a promise
                 return _callDB( method, url, data );

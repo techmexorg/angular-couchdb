@@ -28,8 +28,8 @@ MainController.controller( 'MainCtrl', [
         $scope.this_couchDB = {
             database: "test_angular_couchdb",
             designDocument: "design",
-            //host: "localhost",
-            host: "192.168.1.94",
+            host: "localhost",
+            //host: "192.168.1.94",
             port: "5984"
         };
 
@@ -156,7 +156,7 @@ MainController.controller( 'MainCtrl', [
 
         // ACTIONS ( Tests )
         $scope.Delete = function( tests ) {
-            // This test deletes a document 
+            // This test deletes a document
             var deferred = Q.defer();
             var _doc,
                 _id,
@@ -243,7 +243,7 @@ MainController.controller( 'MainCtrl', [
             // This test performs three actions:
             //  (1) Read a document by a specified keyvalue and View
             //  (2) Read a collection of documents starting with a specified keyvalue and View
-            //  (3) Read a collection of documents bounded by starting and ending key values and View 
+            //  (3) Read a collection of documents bounded by starting and ending key values and View
             //  REQUIRES: tests UUID, POST, PUT and Design document in the target CouchDB with the specified View.
             var deferred = Q.defer();
             var _allPromises;
